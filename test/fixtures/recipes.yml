@@ -6,7 +6,7 @@ one:
   cooking_time: 1.5
   description: MyString
   public: false
-  user_id: one
+  user: one
 
 two:
   name: MyString
@@ -14,4 +14,4 @@ two:
   cooking_time: 1.5
   description: MyString
   public: false
-  user_id: two
+  user: two

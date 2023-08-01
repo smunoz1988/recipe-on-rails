@@ -2,10 +2,10 @@
 
 one:
   quantity: 1
-  recipe_id: one
-  food_id: one
+  recipe: one
+  food: one
 
 two:
   quantity: 1
-  recipe_id: two
-  food_id: two
+  recipe: two
+  food: two
