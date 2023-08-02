@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <%# <%= stylesheet_link_tag 'foods' %> %>
+  </head>
+  <body>
+
+<%# <%= link_to "Add recipe", new_user_food_path(user_id: @user.id), class: "btn" %> %>
+
+<% if @user.recipes.empty? %>
+  <p>Not recipes added yet</p>
+<% else %>
+      <% @user.foods.each do |food| %>
+        <div>
+          <p><%= recipe.name %></p>
+          <p><%= recipe.description %></p>
+          <%= button_to "Delete recipe", user_recipe_path(user_id: recipe.user_id, id: recipe.id), method: :delete, class: "btn"  %>
+        </div>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+  </body>
+</html>
