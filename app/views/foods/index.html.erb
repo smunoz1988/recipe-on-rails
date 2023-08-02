@@ -12,19 +12,18 @@
   <table class="foodTable">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Quantity</th>
+        <th>Food</th>
         <th>Measurement Unit</th>
-        <th>Price</th>
+        <th>Unit Price</th>
+        <th>Action<th>
       </tr>
     </thead>
     <tbody>
       <% @user.foods.each do |food| %>
         <tr>
           <td><%= food.name %></td>
-          <td><%= food.quantity %></td>
           <td><%= food.measurement_unit %></td>
-          <td><%= food.price %></td>
+          <td>$<%= food.price %></td>
           <td><%= button_to "Delete food", user_food_path(user_id: food.user_id, id: food.id), method: :delete, class: "btn"  %></td>
         </tr>
       <% end %>
