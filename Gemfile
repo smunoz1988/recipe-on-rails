@@ -73,4 +73,8 @@ end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+# Authentication with devise
 gem 'devise'
+
+# Authorization with can can can
+gem 'cancancan'
