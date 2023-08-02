@@ -4,6 +4,8 @@
   </head>
   <body>
 
+<%= link_to "Add food", new_user_food_path(user_id: @user.id), class: "btn" %>
+
 <% if @user.foods.empty? %>
   <p>Not food added yet</p>
 <% else %>
@@ -23,6 +25,7 @@
           <td><%= food.quantity %></td>
           <td><%= food.measurement_unit %></td>
           <td><%= food.price %></td>
+          <td><%= button_to "Delete food", user_food_path(user_id: food.user_id, id: food.id), method: :delete, class: "btn"  %></td>
         </tr>
       <% end %>
     </tbody>
