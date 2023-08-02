@@ -1,0 +1,7 @@
+.foodTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  text-align: center;
+}
