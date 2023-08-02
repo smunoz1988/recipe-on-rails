@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <%= stylesheet_link_tag 'foods' %>
+  </head>
+  <body>
+
+<% if @user.foods.empty? %>
+  <p>Not food added yet</p>
+<% else %>
+  <table class="foodTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Measurement Unit</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.quantity %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= food.price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+  </body>
+</html>
