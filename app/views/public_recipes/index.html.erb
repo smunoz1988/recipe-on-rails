@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <%= stylesheet_link_tag 'foods' %>
+  </head>
+  <body>
+
+<h2>Public recipes</h2>
+
+<% if @public_recipes.empty? %>
+  <p>Not public recipes added yet</p>
+<% else %>
+      <% @public_recipes.each do |public_recipe| %>
+        <h3><%= public_recipe.name %></h3>
+        <p><%= public_recipe.description %></p>
+      <% end %>
+<% end %>
+
+  </body>
+</html>
