@@ -10,12 +10,12 @@
   <p>Not public recipes added yet</p>
 <% else %>
   <% @public_recipes.each do |recipe| %>
+        <hr>
         <h3><%= recipe.name %></h3>
         <p>By: <%= recipe.user.name %></p>
         <p>Total food items: 4</p>
         <p>Total price: $203</p>
   <% end %>
-
 <% end %>
 
   </body>
