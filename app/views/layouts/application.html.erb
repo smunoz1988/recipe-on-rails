@@ -20,7 +20,7 @@
           <% if user_signed_in? %>
             <li><%= link_to "Foods", user_foods_path(current_user) %></li>
             <li><%= link_to "Recipes", user_recipes_path(current_user) %></li>
-            <li><%= link_to "Public Recipes" %></li>
+            <li><%= link_to "Public Recipes", user_public_recipes_path(current_user) %></li>
             <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
             <li>
               <%= button_to "Sign out", destroy_user_session_path, :method => :delete %>
