@@ -9,10 +9,13 @@
 <% if @public_recipes.empty? %>
   <p>Not public recipes added yet</p>
 <% else %>
-      <% @public_recipes.each do |public_recipe| %>
-        <h3><%= public_recipe.name %></h3>
-        <p><%= public_recipe.description %></p>
-      <% end %>
+  <% @public_recipes.each do |recipe| %>
+        <h3><%= recipe.name %></h3>
+        <p>By: <%= recipe.user.name %></p>
+        <p>Total food items: 4</p>
+        <p>Total price: $203</p>
+  <% end %>
+
 <% end %>
 
   </body>
