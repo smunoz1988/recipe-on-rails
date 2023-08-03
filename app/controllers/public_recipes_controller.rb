@@ -1,5 +1,5 @@
 class PublicRecipesController < ApplicationController
-    def index
-    #  render all recipes and users names with a public status
-    @public_recipes = Recipe.where(public: true)
+  def index
+    @public_recipes = Recipe.where(public: true).includes(:user).order(created_at: :desc)
+  end
 end
