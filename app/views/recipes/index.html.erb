@@ -4,12 +4,12 @@
   </head>
   <body>
 
-<%# <%= link_to "Add recipe", new_user_food_path(user_id: @user.id), class: "btn" %> %>
+<%= button_to "Add recipe", new_user_recipe_path(user_id: @user.id), method: :get, class: "btn" %>
 
 <% if @user.recipes.empty? %>
   <p>Not recipes added yet</p>
 <% else %>
-      <% @user.foods.each do |food| %>
+      <% @user.recipes.each do |recipe| %>
         <div>
           <p><%= recipe.name %></p>
           <p><%= recipe.description %></p>
