@@ -9,7 +9,7 @@
 
     <p><%= @recipe.description %></p>
 
-    <%= @recipe.public.to_s %>
+    <h4>public: <%= @recipe.public.to_s %></h4>
 
     <%= button_to "Generate Shopping List" %>
     <%= button_to "Add Ingredient", new_user_food_path(user_id: @user.id), method: :get, class: "btn" %>
