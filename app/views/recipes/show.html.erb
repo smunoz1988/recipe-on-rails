@@ -3,17 +3,18 @@
 
     <h1><%= @recipe.name %></h1>
 
-    <h4><%= @recipe.preparation_time.to_i %> minutes</h4>
+    <h4>Preparation Time: <%= @recipe.preparation_time.to_i %> minutes</h4>
 
-    <h4><%= @recipe.cooking_time.to_i %> minutes</P>
+    <h4>Cooking Time: <%= @recipe.cooking_time.to_i %> minutes</P>
 
     <p><%= @recipe.description %></p>
 
     <h4>public: <%= @recipe.public.to_s %></h4>
 
     <%= button_to "Generate Shopping List" %>
-    <%= button_to "Add Ingredient", new_user_food_path(user_id: @user.id), method: :get, class: "btn" %>
-
+    <% if current_user == @recipe.user %>
+      <%= button_to "Add Ingredient", new_user_food_path(user_id: @user.id), method: :get, class: "btn" %>
+    <% end %>
     
     <hr />
 
@@ -35,12 +36,10 @@
               <td><%= food.name %></td>
               <td><%= food.quantity %></td>
               <td>$<%= food.price %></td>
-              <% if current_user == food.user %>
                 <td>
                   <%= button_to "Modify" %>
                   <%= button_to "Remove", user_food_path(user_id: food.user_id, id: food.id), method: :delete, class: "btn"  %>
                 </td>
-              <% end %>
             </tr>
           <% end %>
         </tbody>
