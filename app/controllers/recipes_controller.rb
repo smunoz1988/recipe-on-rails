@@ -28,6 +28,12 @@ class RecipesController < ApplicationController
     redirect_to user_recipes_path
   end
 
+  def toggle
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+    redirect_back(fallback_location: root_path)
+  end
+
   def post_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
