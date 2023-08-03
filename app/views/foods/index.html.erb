@@ -4,7 +4,7 @@
   </head>
   <body>
 
-<%= link_to "Add food", new_user_food_path(user_id: @user.id), class: "btn" %>
+<%= button_to "Add food", new_user_food_path(user_id: @user.id), method: :get, class: "btn" %>
 
 <% if @user.foods.empty? %>
   <p>Not food added yet</p>
@@ -13,6 +13,7 @@
     <thead>
       <tr>
         <th>Food</th>
+        <th>Quantity</th>
         <th>Measurement Unit</th>
         <th>Unit Price</th>
         <th>Action<th>
@@ -22,9 +23,12 @@
       <% @user.foods.each do |food| %>
         <tr>
           <td><%= food.name %></td>
+          <td><%= food.quantity %></td>
           <td><%= food.measurement_unit %></td>
           <td>$<%= food.price %></td>
-          <td><%= button_to "Delete food", user_food_path(user_id: food.user_id, id: food.id), method: :delete, class: "btn"  %></td>
+          <% if current_user == food.user %>
+            <td><%= button_to "Delete food", user_food_path(user_id: food.user_id, id: food.id), method: :delete, class: "btn"  %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
