@@ -5,6 +5,6 @@ class Recipe < ApplicationRecord
 
   def total_price
     # Calculate the total price for the recipe
-    self.recipe_foods.sum { |rf| rf.quantity * rf.food.price }
+    recipe_foods.sum { |rf| rf.quantity * rf.food.price }
   end
 end
