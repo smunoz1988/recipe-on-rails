@@ -1,2 +1,11 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!-- In your view -->
+<h2>Shopping List</h2>
+<% if @shopping_list.any? %>
+  <ul>
+    <% @shopping_list.each do |food, quantity_to_buy| %>
+      <li><%= "#{food.name}: #{quantity_to_buy}" %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No ingredients to buy. Your pantry is fully stocked!</p>
+<% end %>
