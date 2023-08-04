@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <%= stylesheet_link_tag 'foods' %>
+  </head>
+  <body>
+
+<h2>Public recipes</h2>
+
+<% if @public_recipes.empty? %>
+  <p>Not public recipes added yet</p>
+<% else %>
+  <% @public_recipes.each do |recipe| %>
+    <hr>
+    <h3><%= recipe.name %></h3>
+    <p>By: <%= recipe.user.name %></p>
+    <p>Total food items: <%= recipe.recipe_foods_count %> </p>
+    <p>Total price: $<%= recipe.total_price %></p>
+  <% end %>
+<% end %>
+
+  </body>
+</html>

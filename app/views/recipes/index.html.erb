@@ -1,11 +1,29 @@
 <html>
 
+<head>
+    <%# <%= stylesheet_link_tag 'foods' %> %>
+</head>
+
+
   <body>
 
     <%= button_to "Add recipe", new_user_recipe_path(user_id: @user.id), method: :get, class: "btn" %>
 
     <% if @user.recipes.empty? %>
       <p>Not recipes added yet</p>
+    <% else %>
+      <% @user.recipes.each do |recipe| %>
+        <div>
+          <p><%= recipe.name %></p>
+          <p><%= recipe.description %></p>
+          <p><%= recipe.public %></p>
+          <% if current_user == recipe.user %>
+            <%= button_to "Delete recipe", user_recipe_path(user_id: recipe.user_id, id: recipe.id), method: :delete, class: "btn"  %>
+            <%= button_to "Toggle Public", toggle_user_recipe_path(user_id: recipe.user.id, id: recipe.id), method: :patch, class: "btn toggle-public-btn" %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
       <% else %>
         <% @user.recipes.each do |recipe| %>
           <div>
@@ -19,4 +37,5 @@
     <% end %>
 
   </body>
+
 </html>
