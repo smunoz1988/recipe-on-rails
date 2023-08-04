@@ -1,9 +1,51 @@
 <html>
-  <head>
-    
-  </head>
   <body>
+
+    <h1><%= @recipe.name %></h1>
+
+    <h4><%= @recipe.preparation_time.to_i %> minutes</h4>
+
+    <h4><%= @recipe.cooking_time.to_i %> minutes</P>
+
+    <p><%= @recipe.description %></p>
+
+    <h4>public: <%= @recipe.public.to_s %></h4>
+
+    <%= button_to "Generate Shopping List" %>
+    <%= button_to "Add Ingredient", new_user_food_path(user_id: @user.id), method: :get, class: "btn" %>
+
     
+    <hr />
+
+    <% if @user.foods.empty? %>
+      <p>Not food added yet</p>
+    <% else %>
+      <table class="foodTable">
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Value</th>
+            <th>Action<th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.foods.each do |food| %>
+            <tr>
+              <td><%= food.name %></td>
+              <td><%= food.quantity %></td>
+              <td>$<%= food.price %></td>
+              <% if current_user == food.user %>
+                <td>
+                  <%= button_to "Modify" %>
+                  <%= button_to "Remove", user_food_path(user_id: food.user_id, id: food.id), method: :delete, class: "btn"  %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
 
   </body>
 </html>

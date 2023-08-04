@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @food = Food.all
     @recipe = Recipe.find(params[:id])
   end

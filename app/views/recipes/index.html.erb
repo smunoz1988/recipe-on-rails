@@ -1,7 +1,10 @@
 <html>
+
 <head>
     <%# <%= stylesheet_link_tag 'foods' %> %>
 </head>
+
+
   <body>
 
     <%= button_to "Add recipe", new_user_recipe_path(user_id: @user.id), method: :get, class: "btn" %>
@@ -21,6 +24,18 @@
         </div>
       <% end %>
     <% end %>
+      <% else %>
+        <% @user.recipes.each do |recipe| %>
+          <div>
+           <p><%= link_to recipe.name, user_recipe_path(user_id: recipe.user_id, id: recipe.id) %></p>
+           <p><%= recipe.description %></p>
+            <% if current_user == recipe.user %>
+              <%= button_to "Delete recipe", user_recipe_path(user_id: recipe.user_id, id: recipe.id), method: :delete, class: "btn"  %>
+            <% end %>
+          </div>
+      <% end %>
+    <% end %>
+
   </body>
 
 </html>
