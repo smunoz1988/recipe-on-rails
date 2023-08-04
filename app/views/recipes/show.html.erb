@@ -43,7 +43,7 @@
             <td><%= recipe.quantity %></td>
             <td>$<%= recipe.food.price * recipe.quantity %></td>
             <td>
-              <%= button_to "Modify" %>
+              <%= button_to "Modify", edit_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :get, class: "btn"  %>
               <%= button_to "Delete ingredient", user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :delete, class: "btn"  %>
             </td>
           </tr>
