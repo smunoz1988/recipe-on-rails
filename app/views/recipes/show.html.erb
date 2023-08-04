@@ -15,16 +15,17 @@
 
   <h4>Public: <%= @recipe.public.to_s %></h4>
 
-  <%= button_to "Generate Shopping List" %>
+  <%= button_to "Generate Shopping List", home_path, method: :get %>
 
   <% if current_user == @recipe.user %>
-    <%= button_to "Add Ingredient", new_user_food_path(user_id: @user.id), method: :get, class: "btn" %>
+    <%= button_to "Add ingredient", new_user_recipe_recipe_food_path(recipe_id: @recipe.id), method: :get, class: "btn" %>
+    <%= button_to "Toggle Public", toggle_user_recipe_path(user_id: current_user.id, id: @recipe.id), method: :patch, class: "btn toggle-public-btn" %>
   <% end %>
 
   <hr />
 
   <% if @user.foods.empty? %>
-    <p>No food added yet</p>
+    <p>No food ingredients yet</p>
   <% else %>
     <table class="foodTable">
       <thead>
@@ -32,24 +33,23 @@
           <th>Food</th>
           <th>Quantity</th>
           <th>Value</th>
-          <th>Action</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <% @user.foods.each do |food| %>
+        <% @recipe_foods.each do |recipe| %>
           <tr>
-            <td><%= food.name %></td>
-            <td><%= food.quantity %></td>
-            <td>$<%= food.price %></td>
+            <td><%= recipe.food.name %></td>
+            <td><%= recipe.quantity %></td>
+            <td>$<%= recipe.food.price * recipe.quantity %></td>
             <td>
-              <%= button_to "Modify" %>
-              <%= button_to "Remove", user_food_path(user_id: food.user_id, id: food.id), method: :delete, class: "btn" %>
+              <%= button_to "Modify", edit_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :get, class: "btn"  %>
+              <%= button_to "Delete ingredient", user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :delete, class: "btn"  %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   <% end %>
-
 </body>
 </html>

@@ -1,0 +1,14 @@
+<h2>Shopping List</h2>
+<% if @shopping_list[:shopping_list].any? %>
+  <ul>
+    <% @shopping_list[:shopping_list].each do |food, details| %>
+      <li>
+        <%= "#{food.name}: #{details[:quantity]} (Total Price: $#{details[:total_price]})" %>
+      </li>
+    <% end %>
+  </ul>
+  <p>Total Items to Buy: <%= @shopping_list[:total_items] %></p>
+  <p>Total Value Needed: $<%= @shopping_list[:total_value] %></p>
+<% else %>
+  <p>No ingredients to buy. Your pantry is fully stocked!</p>
+<% end %>
