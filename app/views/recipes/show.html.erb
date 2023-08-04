@@ -25,7 +25,7 @@
   <hr />
 
   <% if @user.foods.empty? %>
-    <p>No food added yet</p>
+    <p>No food ingredients yet</p>
   <% else %>
     <table class="foodTable">
       <thead>
@@ -33,24 +33,23 @@
           <th>Food</th>
           <th>Quantity</th>
           <th>Value</th>
-          <th>Action</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <% @user.foods.each do |food| %>
+        <% @recipe_foods.each do |recipe| %>
           <tr>
-            <td><%= food.name %></td>
-            <td><%= food.quantity %></td>
-            <td>$<%= food.price %></td>
+            <td><%= recipe.food.name %></td>
+            <td><%= recipe.quantity %></td>
+            <td>$<%= recipe.food.price * recipe.quantity %></td>
             <td>
               <%= button_to "Modify" %>
-              <%= button_to "Remove", user_food_path(user_id: food.user_id, id: food.id), method: :delete, class: "btn" %>
+              <%= button_to "Remove" %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   <% end %>
-
 </body>
 </html>
