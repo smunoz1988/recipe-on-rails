@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       end
     end
     resources :public_recipes
+    resources :recipe_foods
   end
   root 'home#index'
 end
