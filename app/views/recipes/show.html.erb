@@ -18,7 +18,7 @@
   <%= button_to "Generate Shopping List" %>
 
   <% if current_user == @recipe.user %>
-    <%= button_to "Add ingredient", new_user_recipe_food_path(recipe_id: @recipe.id), method: :get, class: "btn" %>
+    <%= button_to "Add ingredient", new_user_recipe_recipe_food_path(recipe_id: @recipe.id), method: :get, class: "btn" %>
     <%= button_to "Toggle Public", toggle_user_recipe_path(user_id: current_user.id, id: @recipe.id), method: :patch, class: "btn toggle-public-btn" %>
   <% end %>
 
@@ -44,7 +44,7 @@
             <td>$<%= recipe.food.price * recipe.quantity %></td>
             <td>
               <%= button_to "Modify" %>
-              <td><%= button_to "Delete ingredient", user_recipe_food_path(id: recipe.id), method: :delete, class: "btn"  %></td>
+              <%= button_to "Delete ingredient", user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :delete, class: "btn"  %>
             </td>
           </tr>
         <% end %>

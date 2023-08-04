@@ -7,9 +7,9 @@ Rails.application.routes.draw do
       member do
         patch 'toggle'
       end
+      resources :recipe_foods
     end
     resources :public_recipes
-    resources :recipe_foods
   end
   root 'home#index'
 end
