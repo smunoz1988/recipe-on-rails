@@ -2,12 +2,13 @@ class RecipeFoodsController < ApplicationController
   def new
     @foods = current_user.foods.pluck(:name, :id)
     @recipe_food = RecipeFood.new
+    @recipe = Recipe.find(params[:recipe_id])
   end
 
   def create
     @recipe_food = RecipeFood.new(post_params)
     if @recipe_food.save
-      redirect_to user_recipes_path
+      redirect_to user_recipe_path(user_id: current_user.id, id: @recipe_food.recipe_id)
     else
       render :new
     end
@@ -16,7 +17,7 @@ class RecipeFoodsController < ApplicationController
   def destroy
     @recipe_food = RecipeFood.find(params[:id])
     @recipe_food.destroy
-    redirect_to user_recipes_path(:recipe_id)
+    redirect_to user_recipe_path(user_id: current_user.id, id: @recipe_food.recipe_id)
   end
 
   def post_params
