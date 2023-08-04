@@ -24,14 +24,16 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = RecipeFood.find(params[:id])
     @recipe = Recipe.find(params[:recipe_id])
   end
-  
+
   def update
     @recipe_food = RecipeFood.find(params[:id])
     @recipe_id = params[:recipe_id]
     if @recipe_food.update(post_params)
-      redirect_to user_recipe_path(user_id: current_user.id, id: @recipe_food.recipe_id) , notice: 'The ingredient was successfully updated.'
+      redirect_to user_recipe_path(user_id: current_user.id, id: @recipe_food.recipe_id),
+                  notice: 'The ingredient was successfully updated.'
     else
-      redirect_to user_recipe_path(user_id: current_user.id, id: @recipe_food.recipe_id), alert: 'The ingredient could not be updated.'
+      redirect_to user_recipe_path(user_id: current_user.id, id: @recipe_food.recipe_id),
+                  alert: 'The ingredient could not be updated.'
     end
   end
 
