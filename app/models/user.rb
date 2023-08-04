@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   def shopping_list
     # Get all the recipe foods for the current user's recipes
-    recipe_foods = RecipeFood.joins(:recipe).where(recipes: { user_id: self.id })
+    recipe_foods = RecipeFood.joins(:recipe).where(recipes: { user_id: id })
 
     # Group the recipe foods by their associated food items and calculate the total quantity required for each food item
     required_foods = recipe_foods.group(:food_id).sum(:quantity)
@@ -26,17 +26,17 @@ class User < ApplicationRecord
       available_quantity = food.quantity || 0
       quantity_to_buy = [0, total_quantity_required - available_quantity].max
 
-      if quantity_to_buy > 0
-        # Calculate the total price for the required quantity
-        total_price = food.price * quantity_to_buy
-        shopping_list[food] = { quantity: quantity_to_buy, total_price: total_price }
+      next unless quantity_to_buy.positive?
 
-        # Increment total items and total value
-        total_items += quantity_to_buy
-        total_value += total_price
-      end
+      # Calculate the total price for the required quantity
+      total_price = food.price * quantity_to_buy
+      shopping_list[food] = { quantity: quantity_to_buy, total_price: }
+
+      # Increment total items and total value
+      total_items += quantity_to_buy
+      total_value += total_price
     end
 
-    { shopping_list: shopping_list, total_items: total_items, total_value: total_value }
+    { shopping_list:, total_items:, total_value: }
   end
 end
