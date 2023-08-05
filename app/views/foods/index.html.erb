@@ -26,8 +26,10 @@
           <td><%= food.quantity %></td>
           <td><%= food.measurement_unit %></td>
           <td>$<%= food.price %></td>
-          <% if current_user == food.user %>
+          <% if current_user == food.user && !@recipe_foods.find { |rf| rf.food_id == food.id } %>
             <td><%= button_to "Delete food", user_food_path(user_id: food.user_id, id: food.id), method: :delete, class: "btn"  %></td>
+          <% else %>
+            <td>Food is been used in a recipe</td>
           <% end %>
         </tr>
       <% end %>

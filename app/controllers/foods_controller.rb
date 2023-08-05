@@ -1,6 +1,8 @@
 class FoodsController < ApplicationController
   def index
     @user = User.includes(:foods).find(params[:user_id])
+    @recipe_foods = RecipeFood.joins(:recipe).where(recipes: { user_id: current_user.id })
+    p @recipe_foods
   end
 
   def new
