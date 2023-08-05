@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container">
-    
+    <%= button_to "Add recipe", new_user_recipe_path(user_id: @user.id), method: :get, class: "btn" %>
     <br />
     <% if @user.recipes.empty? %>
       <p>No recipes added yet</p>
@@ -17,10 +17,9 @@
         <div class="recipe">
           <p><%= link_to recipe.name, user_recipe_path(user_id: recipe.user_id, id: recipe.id), class: "recipe-name" %></p>
           <p class="recipe-description"><%= recipe.description %></p>
-          <% if current_user == recipe.user %>
+          <% if current_user == recipe.user  %>
             <div class= "actions">
               <%= button_to "Delete recipe", user_recipe_path(user_id: recipe.user_id, id: recipe.id), method: :delete, class: "btn" %>
-              <%= button_to "Add recipe", new_user_recipe_path(user_id: @user.id), method: :get, class: "btn" %>
             </div>
           <% end %>
         </div>

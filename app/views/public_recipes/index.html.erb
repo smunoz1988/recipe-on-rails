@@ -19,10 +19,9 @@
         <div>
           <h3><%= link_to recipe.name, user_recipe_path(user_id: recipe.user_id, id: recipe.id), class: "recipe-name" %></h3>
           <p>By: <%= recipe.user.name %></p>
-        </div>
-        <div>
           <p>Total food items: <%= recipe.recipe_foods_count %> </p>
           <p>Total price: $<%= recipe.total_price %></p>
+          <hr />
         </div>
       <% end %>
     <% end %>
