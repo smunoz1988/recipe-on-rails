@@ -37,8 +37,7 @@ h2 {
 
 .recipe {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: space-between;
   gap: 1rem;
   margin-bottom: 20px;
   padding: 15px;
@@ -47,14 +46,25 @@ h2 {
   background-color: #f8f8f8;
 }
 
+.name-btn {
+  width: 40%;
+}
+
+.recipe-title {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
 .recipe-name {
   font-size: 1.2em;
   color: #4caf50;
   margin: 0;
+  text-align: left;
 }
 
 .recipe-description {
   color: #666;
+  width: 60%;
+  text-align: left;
 }
 
 .recipe-public {

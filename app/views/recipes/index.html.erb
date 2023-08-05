@@ -15,13 +15,15 @@
     <% else %>
       <% @user.recipes.each do |recipe| %>
         <div class="recipe">
-          <p><%= link_to recipe.name, user_recipe_path(user_id: recipe.user_id, id: recipe.id), class: "recipe-name" %></p>
-          <p class="recipe-description"><%= recipe.description %></p>
+        <div class="name-btn">
+          <p class="recipe-title"><%= link_to recipe.name, user_recipe_path(user_id: recipe.user_id, id: recipe.id), class: "recipe-name" %></p>
           <% if current_user == recipe.user  %>
             <div class= "actions">
               <%= button_to "Delete recipe", user_recipe_path(user_id: recipe.user_id, id: recipe.id), method: :delete, class: "btn" %>
             </div>
           <% end %>
+        </div>
+        <p class="recipe-description"><%= recipe.description %></p>
         </div>
       <% end %>
     <% end %>
