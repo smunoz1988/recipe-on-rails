@@ -1,55 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recipe Details</title>
-  <!-- Add your CSS and JavaScript links here -->
+  <%= stylesheet_link_tag 'recipe_show', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
+  <div class="container">
+    <h1><%= @recipe.name %></h1>
+    
+    <div class= "recipe_information">
+      <div>
+        <h4>Preparation Time: <%= @recipe.preparation_time.to_i %> minutes</h4>
+        <h4>Cooking Time: <%= @recipe.cooking_time.to_i %> minutes</h4>
+        <p><%= @recipe.description %></p>
+      </div>
+      <div class="toggle-button">
+        <%= button_to "Toggle Public", toggle_user_recipe_path(user_id: current_user.id, id: @recipe.id), method: :patch, class: "btn toggle-public-btn" %>
+        <h4>Public: <%= @recipe.public.to_s %></h4>
+      </div>
+    </div>
+<br />
+    <div class= "buttons">
+      <% if current_user == @recipe.user %>
+        <%= button_to "Add ingredient", new_user_recipe_recipe_food_path(recipe_id: @recipe.id), method: :get, class: "btn" %>
+        <%= button_to "Generate Shopping List", home_path, method: :get, class: "btn" %>
+      <% end %>
+    </div>
 
-  <h1><%= @recipe.name %></h1>
+    <hr />
 
-  <h4>Preparation Time: <%= @recipe.preparation_time.to_i %> minutes</h4>
-  <h4>Cooking Time: <%= @recipe.cooking_time.to_i %> minutes</h4>
-
-  <p><%= @recipe.description %></p>
-
-  <h4>Public: <%= @recipe.public.to_s %></h4>
-
-  <%= button_to "Generate Shopping List", home_path, method: :get %>
-
-  <% if current_user == @recipe.user %>
-    <%= button_to "Add ingredient", new_user_recipe_recipe_food_path(recipe_id: @recipe.id), method: :get, class: "btn" %>
-    <%= button_to "Toggle Public", toggle_user_recipe_path(user_id: current_user.id, id: @recipe.id), method: :patch, class: "btn toggle-public-btn" %>
-  <% end %>
-
-  <hr />
-
-  <% if @user.foods.empty? %>
-    <p>No food ingredients yet</p>
-  <% else %>
-    <table class="foodTable">
-      <thead>
-        <tr>
-          <th>Food</th>
-          <th>Quantity</th>
-          <th>Value</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @recipe_foods.each do |recipe| %>
+    <% if @user.foods.empty? %>
+      <p>No food ingredients yet</p>
+    <% else %>
+      <table class="foodTable">
+        <thead>
           <tr>
-            <td><%= recipe.food.name %></td>
-            <td><%= recipe.quantity %></td>
-            <td>$<%= recipe.food.price * recipe.quantity %></td>
-            <td>
-              <%= button_to "Modify", edit_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :get, class: "btn"  %>
-              <%= button_to "Delete ingredient", user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :delete, class: "btn"  %>
-            </td>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Value</th>
+            <th>Actions</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
+        </thead>
+        <tbody>
+          <% @recipe_foods.each do |recipe| %>
+            <tr>
+              <td><%= recipe.food.name %></td>
+              <td><%= recipe.quantity %></td>
+              <td>$<%= recipe.food.price * recipe.quantity %></td>
+              <td>
+                <div class= "actions">
+                  <%= link_to "Modify", edit_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :get, class: "action-btn"  %>
+                  <%= link_to "Remove", user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :delete, class: "action-btn"  %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+<br />
+    <%= link_to "Back", user_recipes_path(current_user), class: "btn" %>
+  </div>
 </body>
 </html>
