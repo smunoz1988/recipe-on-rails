@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,8 +7,8 @@ body {
 }
 
 .container {
-  max-width: 800px;
-  margin: 50px auto;
+  max-width: 400px;
+  margin: 40px auto;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -16,6 +17,26 @@ body {
 
 h2 {
   color: #333;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="checkbox"] {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
 }
 
 .btn {
@@ -30,48 +51,13 @@ h2 {
   text-decoration: none;
 }
 
-.action-btn {
-  .btn {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-  }
-}
-
 .btn:hover {
   background-color: #394d39;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th,
-td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f2f2f2;
-}
-
-.foodUsed {
-  color: #f00;
 }
 
 @media (max-width: 600px) {
   .container {
     max-width: 100%;
-    margin: 20px;
+    margin: 50px 20px;
   }
 }

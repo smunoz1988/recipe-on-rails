@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -14,7 +15,17 @@ body {
   border-radius: 5px;
 }
 
-h2 {
+h1 {
+  color: #4caf50;
+  text-align: center;
+}
+
+h4 {
+  color: #666;
+  margin-top: 5px;
+}
+
+p {
   color: #333;
 }
 
@@ -30,25 +41,11 @@ h2 {
   text-decoration: none;
 }
 
-.action-btn {
-  .btn {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-  }
-}
-
 .btn:hover {
   background-color: #394d39;
 }
 
-table {
+.foodTable {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -65,8 +62,35 @@ th {
   background-color: #f2f2f2;
 }
 
-.foodUsed {
-  color: #f00;
+.toggle-public-btn {
+  background-color: #ff9800;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe_information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.action-btn {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 @media (max-width: 600px) {
