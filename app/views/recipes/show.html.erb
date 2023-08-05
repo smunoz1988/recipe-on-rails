@@ -51,8 +51,8 @@
               <td>$<%= recipe.food.price * recipe.quantity %></td>
               <td>
                 <div class= "actions">
-                  <%= link_to "Modify", edit_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :get, class: "action-btn"  %>
-                  <%= link_to "Remove", user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :delete, class: "action-btn"  %>
+                  <%= button_to "Modify", edit_user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :get, class: "action-btn"  %>
+                  <%= button_to "Remove", user_recipe_recipe_food_path(user_id: @recipe.user_id, recipe_id: @recipe.id, id: recipe.id), method: :delete, class: "action-btn"  %>
                 </div>
               </td>
             </tr>
