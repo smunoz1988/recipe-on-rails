@@ -1,75 +1,157 @@
-# 🍳 Recipe on Rails
+<!-- TABLE OF CONTENTS -->
+
+# 📗 Index
+
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+- [👥 Author](#author)
+- [🔭 Features](#features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
+
+<!-- PROJECT DESCRIPTION -->
+
+# 📖 [Recipe On Rails] `[Ruby on Rails]` <a name="about-project"></a>
+
 
 Welcome to Recipe on Rails! This application is designed to enhance your cooking experience by helping you manage your recipes, ingredients, and shopping lists. Whether you're a seasoned chef or just starting in the kitchen, Recipe on Rails is here to make your cooking journey more organized and enjoyable.
 
-## Table of Contents
+## 🛠 Built With <a name="built-with"></a>
 
-- [Description](#description)
-- [Technologies](#technologies)
-- [Features](#features)
-  - [🔐 User Authentication](#user-authentication)
-  - [📝 Food List](#food-list)
-  - [🍽️ Recipes](#recipes)
-  - [🛒 Shopping List](#shopping-list)
-  - [📚 Public Recipes](#public-recipes)
-- [Authors](#authors)
-- [Contact](#contact)
-- [License](#license)
+### Tech Stack <a name="tech-stack"></a>
 
-## Description
+<details>
+    <summary>Client</summary>
+    <ul>
+      <li><a href="https://www.ruby-lang.org/es/">Ruby</a></li>
+      <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
+    </ul>
+  </details>
 
-The Recipe on Rails app is built using the Ruby on Rails framework and leverages the power of Devise for user authentication and CancanCan for authorization control. With Recipe on Rails, you can store and manage your recipes, keep track of your ingredients, and generate shopping lists based on your recipe requirements.
+<details>
+<summary>Database</summary>
+  <ul>
+   <li><a href="https://www.postgresql.org/">Data Storaged with PostgreSQL manager</a></li>
+  </ul>
+</details>
 
-## Technologies
+<!-- Features -->
 
-Recipe on Rails utilizes the following technologies:
+### Key Features <a name="key-features"></a>
 
-- **Ruby on Rails**: A powerful and developer-friendly web application framework used for building the core structure and functionality of the app.
-- **Devise**: A flexible and customizable authentication solution for Rails, ensuring secure user authentication and registration processes.
+  - **[Migration of Database using Rails method]
 
-## Features
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### 🔐 User Authentication
+<!-- LIVE DEMO -->
 
-- **Login Page**: Securely log in to your Recipe on Rails account.
-- **Registration Page**: New to Recipe on Rails? Register and join our culinary community.
+## 🚀 Preview <a name="live-demo"></a>
 
-### 📝 Food List
+Will be implemented in the future
 
-- **Manage Ingredients**: Create, read, and delete ingredients from your personalized food list.
-- **Inventory Tracking**: Keep track of what ingredients you have in stock.
+<!-- GETTING STARTED -->
 
-### 🍽️ Recipes
+## 💻 Getting Started <a name="getting-started"></a>
 
-- **Create and Manage Recipes**: Craft your own recipes and manage them effortlessly.
-- **Recipe Ingredients**: Associate ingredients with your recipes for accurate shopping lists.
+To get a local copy up and running, follow these steps.
 
-### 🛒 Shopping List
+### Prerequisites
 
-- **Generate Shopping List**: Automatically generate a shopping list based on your chosen recipes and the ingredients you need.
-- **Missing Ingredients**: Identify which ingredients you're missing for your recipes.
-- **Total Price**: Get an estimated total price for your shopping list.
+In order to run this project you need:
 
-### 📚 Public Recipes
+```sh
+ To have a computer, Internet, Keyboard, and Mouse, also you need to have Ruby, Ruby on Rails and a SQL database manager settle up on your system
+```
 
-- **Share Your Creations**: Make your recipes public so that other users can discover and try them.
-- **Explore Public Recipes**: Discover a collection of recipes shared by other users, complete with names and total prices.
+### Setup
 
-## Authors
+Clone this repository to your desired folder:
 
-- **Daniel Falcon** 🧑‍🍳
-  - GitHub: [Github](https://github.com/danielfalcon)
-  - LinkedIn: [Linkedin](https://linkedin.com/in/danielfalcon)
+```sh
+    git clone https://github.com/smunoz1988/recipe-on-rails.git
+```
 
-- **Santiago Munoz** 🍔
-  - GitHub: [@smunoz](https://github.com/smunoz)
-  - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-  - LinkedIn: [LinkedIn](https://linkedin.com/in/santiagomunoz)
+### Install
 
-## Contact
+```sh
+  Run bundle installs to install all the gems and dependencies.
+```
 
-For any inquiries, suggestions, or collaboration opportunities, feel free to reach out to us through GitHub or LinkedIn. We're excited to hear from you and help you make the most of your cooking adventures with Recipe on Rails!
+### Usage
 
-## License
+To run the project, execute the following command:
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```sh
+executing the command `rails s` will start the server of this RoR app.
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- AUTHOR -->
+
+## 👥 Authors <a name="author"></a>
+
+👤 **Daniel Falcon** 
+- GitHub: [Github](https://github.com/Danfall369) |
+- LinkedIn: [Linkedin](https://www.linkedin.com/in/danfall369/)
+
+👤 **Santiago Muñoz** 
+- GitHub: [@smunoz](https://github.com/smunoz)
+- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/santiagomunoz)
+
+<!-- FEATURES -->
+
+## 🔭 Features <a name="features"></a>
+
+- [ ] **[🔐 User Authentication]**
+- [ ] **[📝 Food List]**
+- [ ] **[🍽️ Recipes]**
+- [ ] **[🛒 Shopping List]**
+- [ ] **[📚 Public Recipes]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the <a href="https://github.com/smunoz1988/recipe-on-rails/issues">Issue Page</a>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project, give it a star and be pending on our profiles since we'll be doing much more! 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+Also, we would like to thanks our Microverse Team and my partners for helping us to get this done.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
