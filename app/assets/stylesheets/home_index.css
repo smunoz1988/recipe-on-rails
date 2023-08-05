@@ -15,7 +15,7 @@ body {
   border-radius: 5px;
 }
 
-.welcome{
+.welcome {
   display: flex;
   flex-direction: column;
   justify-content: center;
