@@ -5,6 +5,7 @@ Welcome to Recipe on Rails! This application is designed to enhance your cooking
 ## Table of Contents
 
 - [Description](#description)
+- [Technologies](#technologies)
 - [Features](#features)
   - [🔐 User Authentication](#user-authentication)
   - [📝 Food List](#food-list)
@@ -18,6 +19,13 @@ Welcome to Recipe on Rails! This application is designed to enhance your cooking
 ## Description
 
 The Recipe on Rails app is built using the Ruby on Rails framework and leverages the power of Devise for user authentication and CancanCan for authorization control. With Recipe on Rails, you can store and manage your recipes, keep track of your ingredients, and generate shopping lists based on your recipe requirements.
+
+## Technologies
+
+Recipe on Rails utilizes the following technologies:
+
+- **Ruby on Rails**: A powerful and developer-friendly web application framework used for building the core structure and functionality of the app.
+- **Devise**: A flexible and customizable authentication solution for Rails, ensuring secure user authentication and registration processes.
 
 ## Features
 
