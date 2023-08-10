@@ -87,6 +87,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: recipe_on_rails_production
   username: recipe_on_rails
   password: <%= ENV["RECIPE_ON_RAILS_DATABASE_PASSWORD"] %>
